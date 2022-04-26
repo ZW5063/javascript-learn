@@ -1,1 +1,3 @@
-1:
+function fn (){
+    console.log(1);
+}
