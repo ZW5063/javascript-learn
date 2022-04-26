@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. 创建一个类 class 明星类
+        class Star {
+            constructor(uname, age) {
+                this.uname = uname;
+                this.age = age || '年龄未知';
+            }
+        }
+
+        // 2.利用类创建对象 class
+        const ldh = new Star('刘德华', 18);
+        const zxy = new Star('张学友');
+        console.log(ldh);
+        console.log(zxy);
+
+    </script>
+</body>
+</html>
