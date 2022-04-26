@@ -14,6 +14,9 @@
                 this.uname = uname;
                 this.age = age || '年龄未知';
             }
+            sing(sing) {
+                console.log(this.uname + sing);
+            }
         }
 
         // 2.利用类创建对象 class
@@ -21,7 +24,8 @@
         const zxy = new Star('张学友');
         console.log(ldh);
         console.log(zxy);
-
+        ldh.sing('冰雨')
+        zxy.sing('李香兰')
     </script>
 </body>
 </html>

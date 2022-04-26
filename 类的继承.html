@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1.继承
+        // class Father {
+        //     constructor() {
+
+        //     }
+        //     money() {
+        //         console.log(100);
+        //     }
+        // }
+
+        // class Son extends Father {
+
+        // }
+
+
+
+        // 2.继承方法
+        // const son = new Son();
+        // son.money();
+
+        // class Father {
+        //     constructor(x, y) {
+        //         this.x = x;
+        //         this.y = y;
+        //     }
+        //     sum() {
+                
+        //         console.log(this.x + this.y);
+        //     }
+        //     log() {
+        //         console.log(this);
+        //     }
+        // }
+
+        // class Sun extends Father {
+        //     constructor(x, y) {
+        //         super(x, y);
+        //     }
+            
+        // }
+        // const sun = new Sun(7, 8);
+        // const father = new Father(3, 4);
+        // sun.sum();
+        // father.sum();
+        
+
+        
+        // 3.super 关键字
+        class Father {
+            say() {
+                return '我是爸爸';
+            }
+        }
+
+        class Son extends Father {
+            say() {
+                console.log(super.say() + '的儿子');
+            }
+        }
+        const son = new Son();
+        son.say();
+
+    </script>
+</body>
+</html>
