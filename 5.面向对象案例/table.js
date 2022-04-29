@@ -20,9 +20,11 @@ class Tab {
     this.addBtn = document.querySelector(jia);
     this.ul = document.querySelector('.ul');
     this.main = document.querySelector('.main');
+    
     this.init();
   }
   getNode() {
+    this.del = document.querySelectorAll('.jian');
     this.lis = this.tab.querySelectorAll('li');
     this.sections = this.tab.querySelectorAll('section');
   }
@@ -32,11 +34,20 @@ class Tab {
     for(let i = 0; i < this.lis.length; i++) {
       this.lis[i].index = i;
       this.lis[i].onclick = this.tobbleTab;
+      this.del[i].onclick = function(e){
+        e.stopPropagation();
+        
+        console.log('删除了'[i],e);
+      };
     }
+    
     this.addBtn.onclick = this.addTab;
+    console.log(this.del, this.addBtn);
+
   }
   // 1.切换功能
   tobbleTab() {
+    console.log('切换');
     _that.clearStyle();
     this.className = 'li-style';
     _that.sections[this.index].className = 'con-style';
@@ -67,7 +78,7 @@ class Tab {
   }
   // 3.删除功能
   delTab() {
-
+    console.log('删除');
   }
   // 4.编辑功能
   editTab() {
