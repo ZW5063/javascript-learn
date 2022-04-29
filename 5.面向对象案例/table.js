@@ -13,6 +13,11 @@ let _that;
 // 'afterend' 元素自身后面
 
 // text 是要被解析为HTML或XML，并且插入到DOM树中的字符串
+
+// parentNode 返回一个节点的父节点
+
+// remove(); // 可以直接删除指定的元素，节点
+
 class Tab {
   constructor(id, jia) {
     _that = this;
@@ -34,20 +39,14 @@ class Tab {
     for(let i = 0; i < this.lis.length; i++) {
       this.lis[i].index = i;
       this.lis[i].onclick = this.tobbleTab;
-      this.del[i].onclick = function(e){
-        e.stopPropagation();
-        
-        console.log('删除了'[i],e);
-      };
+      this.del[i].onclick = this.delTab;
+      this.lis[i].ondblclick = this.editTab;
     }
     
     this.addBtn.onclick = this.addTab;
-    console.log(this.del, this.addBtn);
-
   }
   // 1.切换功能
   tobbleTab() {
-    console.log('切换');
     _that.clearStyle();
     this.className = 'li-style';
     _that.sections[this.index].className = 'con-style';
@@ -62,6 +61,7 @@ class Tab {
 
   // 2.新增功能
   addTab() {
+    _that.init();
     console.log(_that.lis.length);
     if(_that.lis.length == 5){
       alert('最多五个')
@@ -77,12 +77,29 @@ class Tab {
 
   }
   // 3.删除功能
-  delTab() {
-    console.log('删除');
+  delTab(e) {
+    e.stopPropagation();
+    let jianNodeIndex = this.parentNode.index;
+    console.log(_that.lis[jianNodeIndex], _that.sections[1]);
+    _that.lis[jianNodeIndex].remove();
+    _that.sections[jianNodeIndex].remove();
+    console.log(jianNodeIndex);
+    if(document.querySelector('.li-style')) return
+    jianNodeIndex--;
+    _that.lis[jianNodeIndex] && _that.lis[jianNodeIndex].click();
+    
   }
   // 4.编辑功能
   editTab() {
-
+      let str = this.innerText.substring(0,this.innerText.length-1);
+      window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty(); 
+      this.innerHTML = '<input type="text">'
+      console.log(this.firstChild.value = str);
+      console.log(this.firstChild);
+      this.firstChild.onblur = function() {
+        this.parentNode.innerHTML = `${this.value}<span class="jian">-</span>`;
+        _that.init();
+      }
   }
 
 }
