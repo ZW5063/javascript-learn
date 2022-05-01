@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Star(uname, age) {
+            this.uname = uname;
+            this.age = age;
+            this.aa = 123;
+            // console.log(this);
+        }
+
+        Star.prototype.abc = 'abc'
+        
+        new Star();
+        Star.prototype.sing = function() {
+            // console.log('我是原型上的方法');
+        }
+        const ldh = new Star();
+
+        // console.dir(Star.prototype, 'Star');
+
+        // const ldh = new Star('刘德华', 18);
+        // console.log(ldh.__proto__, 'ldh');
+        // console.dir(ldh.__proto__.constructor);
+
+
+        // 对象原型 __prototype__ 
+        // console.log(ldh.__proto__,'ldh');
+
+
+
+        // constructor 用于记录该对象引用与哪个对象 
+        // console.dir(ldh.__proto__.constructor);
+
+        Star.prototype = {
+            constructor: Star,
+            sing: function() {
+                console.log('我会唱歌');
+            },
+            movie: function() {
+                console.log('我会演电视');
+            }
+        }
+        // console.dir(ldh.constructor);
+        // console.dir(Star.prototype.constructor);
+        // console.log(ldh.constructor === Star.prototype.constructor);
+
+        
+    </script>
+</body>
+</html> 

@@ -94,11 +94,21 @@ class Tab {
       let str = this.innerText.substring(0,this.innerText.length-1);
       window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty(); 
       this.innerHTML = '<input type="text">'
-      console.log(this.firstChild.value = str);
+      this.firstChild.value = str
+      this.firstChild.select();
       console.log(this.firstChild);
+
       this.firstChild.onblur = function() {
         this.parentNode.innerHTML = `${this.value}<span class="jian">-</span>`;
         _that.init();
+      }
+
+      // 按下回车
+      this.firstChild.onkeyup = function(e) {
+        if(e.keyCode === 13){
+          console.log(this);
+          this.blur();
+        }
       }
   }
 
