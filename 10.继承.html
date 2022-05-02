@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>按钮</button>
+    <script>
+        const btn = document.querySelector('button')
+        console.log(btn.innerText);
+        console.log(btn);
+        // call 方法 第一个参数是this指向
+        function fn() {
+            console.log('我想喝咖啡');
+            this.innerText = '新按钮'
+        }
+        btn.onclick = function() {
+            fn.call(btn);
+             fn();
+        }
+        
+        
+        console.dir(typeof  fn); 
+
+        // 借用父构造函数继承属性
+        // 1. 父构造函数
+        function Father(uname, age) {
+            this.uname = uname;
+            this.age = age;
+        }
+
+        // 2. 子构造函数
+        function Son(uname, age) {
+            Father.call(this, uname, age)
+        }
+
+        const son = new Son('刘德华', 18);
+        console.log(son);
+    </script>
+</body>
+</html>

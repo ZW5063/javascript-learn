@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        Array.prototype.sum = function() {
+            let sum = 0;
+            console.log(this, 'this');
+            for (let i = 0; i < this.length; i++) {
+                // sum = 
+                console.log(this[i]);
+                sum = sum + this[i];
+            }
+            return sum
+        }
+        const arr = [1, 4, 5];
+        let res = arr.sum();
+        let str = '11'
+        let str2 = '22'
+        let str3 = '33'
+    console.dir(new Array(str, str2, str3));
+
+    // 注意：数组字符串内置对象不能给原型对象prototype 赋值操作Array.prototype = {} 会报错 ，， 只能用Array.prototype.xxx = function(){} 的方式赋值
+
+    
+    </script>
+</body>
+</html>
