@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="con">
+        <h4><span>按照价格查询：</span><input type="number" class="start"> - <input type="number" class="end"> <button
+                class="search">搜索</button> 按照商品名称查询：<input class="inp" type="text"> <button class="query">查询</button></h4>
+        <table border>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>产品名称</th>
+                    <th>价格</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const data = [
+            {
+                id: 1,
+                name: '小米',
+                price: 3999
+            },
+            {
+                id: 2,
+                name: 'oppo',
+                price: 1999
+            },
+            {
+                id: 3,
+                name: '苹果',
+                price: 7999
+            },
+            {
+                id: 4,
+                name: '华为',
+                price: 5999
+            },
+        ];
+        let that;
+        class Search {
+            constructor(data) {
+                this.data = data;
+                this.init();
+                that = this;
+            }
+
+            getNode() {
+                this.tbody = document.querySelector('tbody');
+                this.startInp = document.querySelector('.start');
+                this.endInp = document.querySelector('.end');
+                this.searchBtn = document.querySelector('.search');
+                this.inp = document.querySelector('.inp');
+                this.queryBtn = document.querySelector('.query');
+            }
+
+            init() {
+                this.getNode();
+                this.getList(this.data);
+                this.searchBtnFn();
+                this.accordingToNameSearch();
+            }
+
+            getList(data) {
+                this.tbody.innerHTML = '';
+                data.forEach(item => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `<td>${item.id}</td><td>${item.name}</td><td>${item.price}</td>`;
+                    this.tbody.appendChild(tr);
+                });
+            }
+
+            searchBtnFn() {
+                this.searchBtn.addEventListener('click', function () {
+                    const searchRes = that.data.filter(function (item) {
+                        return item.price >= that.startInp.value && item.price <= that.endInp.value;
+                    })
+                    that.getList(searchRes);
+                })
+            }
+
+            accordingToNameSearch() {
+                this.queryBtn.addEventListener('click', function() {
+                    console.log('查询');
+                })
+            }
+
+        }
+
+        const search = new Search(data);
+        console.dir(search);
+        console.log(that == search);
+
+        /*
+        // 获取相应元素
+        const tbody = document.querySelector('tbody');
+        const startInp = document.querySelector('.start');
+        const endInp = document.querySelector('.end');
+        const searchBtn = document.querySelector('.search');
+
+        getList(data);
+        // 渲染数据
+        function getList(data) {
+            tbody.innerHTML = '';
+            data.forEach(item => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `<td>${item.id}</td><td>${item.name}</td><td>${item.price}</td>`;
+                tbody.appendChild(tr);
+            });
+        }
+
+        searchBtn.addEventListener('click', function () {
+            // if (startInp.value === '' || endInp.value === '') {
+            //     alert('请输入正确价格');
+            //     return;
+            // }
+            const searchRes = data.filter(function (item) {
+                return item.price >= startInp.value && item.price <= endInp.value;
+            })
+            getList(searchRes);
+
+        })
+        */
+
+    </script>
+
+    <style>
+        .con {
+            width: 60vw;
+            margin: 50px auto;
+
+        }
+
+        input {
+            width: 80px;
+        }
+
+        table {
+            margin: 0 auto;
+        }
+    </style>
+</body>
+
+</html>

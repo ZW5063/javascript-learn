@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Es5新增方法
+        // 迭代遍历方法
+        // forEach(), map(), some(), every();
+        // forEach 遍历数组可以拿到数组每一项进行操作 (没返回值)
+        // Array.forEach(function(value 数组每一项, index 当前下标, arr 数组本身) {})
+        const arr = Array(1, 2, 3);
+        let sum = 0;
+        arr.forEach(function(value, index, array) {
+            console.log('每一个', value);
+            console.log('每一个索引', index);
+            console.log('本身', array);
+            sum += value;
+        })
+        console.log(sum);
+
+
+        // filter 返回一个新数组 过滤筛选符合条件的(有返回值)
+        // Array.filter(function(value 数组每一项, index 当前下标, arr 数组本身) {})
+        const arr2 = Array(16, 22, 34, 5, 88, 33 , 67);
+        const arrRes = arr2.filter(function(value, index, array){
+            // return value >= 20;
+            return value % 2 === 0;
+        })
+        console.log(arrRes);
+
+
+        // some // 查找数组中符合条件的（返回值 true false）
+        // Array.some(function(value 数组每一项, index 当前下标, arr 数组本身) {})
+        // 找到元素就推出循环（效率更高）
+        let arr3 = Array(10, 30, 4);
+        const arrIsTrue = arr3.some(function(value) {
+            return value >= 54;
+        })
+        console.log(typeof arrIsTrue);
+
+        
+
+        
+    </script>
+</body>
+</html>
