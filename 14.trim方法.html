@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="">
+    <button>确定</button>
+    <div></div>
+    <script>
+        let that;
+        class trimFun {
+            constructor() {
+                that = this;
+                this.init();
+            }
+
+            init() {
+                this.getNode();
+                this.setDivValue();
+            }
+
+            getNode() {
+                this.inp = document.querySelector('input');
+                this.btn = document.querySelector('button');
+                this.div = document.querySelector('div');
+            }
+
+            setDivValue() {
+                this.btn.addEventListener('click', () => {
+                    console.log(that.inp.value.trim().length);
+                    if(that.inp.value.trim().length === 0) {
+                        alert('请输入');
+                        return
+                    }
+                    that.div.innerText = that.inp.value.trim();
+                })
+            }
+        }
+
+        new trimFun();
+    </script>
+</body>
+</html>

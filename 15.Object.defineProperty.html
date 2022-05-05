@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const obj = {
+            id: 1,
+            name: '张三',
+            age: 18,
+            sex: '男',
+        }
+
+        // Object.defineProperty(obj, 'num', {
+        //     value: 1000,
+        // })
+        Object.defineProperty(obj, 'age', {
+            writable: false,
+        })
+
+        Object.defineProperty(obj, 'num', {
+            value: 1,
+            enumerable: false
+        })
+        Object.defineProperty(obj, 'name', {
+            enumerable: false
+        })
+        console.log(Object.keys(obj));
+        for (key in obj) {
+            console.log(key);
+        }
+
+        // obj.age = 20;
+        console.log(obj);
+
+        /*
+        Object.defineproperty(obj, prop, descriptor ); 
+        接收三个参数 
+        obj 对象本身   
+        prop 要修改或添加的属性名 
+
+        descriptor 说明描述符 以对象的形式书写
+        - value  设置的属性值 默认为undefined
+        - writable 可写 false 不可以 true 可以 默认可以
+        - enumerable  目标是否可以被枚举 true｜false 默认为false
+        - configurable 目标属性是否可以被删除 或者被修改属性
+        */
+
+
+    </script>
+</body>
+</html>

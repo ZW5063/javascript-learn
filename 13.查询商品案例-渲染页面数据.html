@@ -93,8 +93,17 @@
 
             accordingToNameSearch() {
                 this.queryBtn.addEventListener('click', function() {
-                    console.log('查询');
+                    console.log(that.data, '查询');
+                    let someData = [];
+                    that.data.some(function(item) {
+                        if(item.name ===  that.inp.value){
+                            someData.push(item);
+                            return true;
+                        }
+                    })
+                    that.getList(someData)
                 })
+
             }
 
         }
