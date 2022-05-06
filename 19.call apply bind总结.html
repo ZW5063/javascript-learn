@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 相同点
+        // - 都可以改变this指向
+
+        // 不同点
+        // - call apply 会调用函数 并且改变函数内部this指向
+        // - call apply 传参方式不一样 ， 
+        // - call传递参数是  (this, 参数1, 参数2, ...) 
+        // - apply 传递参数是 (this, [参数1, 参数2, ...])  会自动解藕成每个参数
+        // - bind 不会调用函数 可以改变this指向
+
+        // 主要应用场景
+        // - call 主要做构造函数的继承
+        // - apply 经常做跟数组有关系的
+        // bind 不调用函数的情况下 改变this
+    </script>
+</body>
+</html>

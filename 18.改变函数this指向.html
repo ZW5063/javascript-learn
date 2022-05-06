@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="btn">点击</button>
+    <br>
+    <hr>
+    <br>
+    <button class="btns">倒计时</button>
+    <button class="btns">倒计时</button>
+    <button class="btns">倒计时</button>
+    <script>
+        //  改变this指向方法 bind()     apply()   call()
+
+        // 1.call  函数.call(this指向谁, 参数1, 参数2, ...)
+        const obj1 = {
+            name: 'zhangSan',
+        };
+        function fn1() {
+            console.log(this);
+        };
+        fn1.call(obj1);
+
+        // 2.call 可以实现继承
+        function Father(name, age, sex) {
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+        };
+
+        function Son() {
+            Father.call(this, 'zhangsan', 18, '男');
+        };
+        let son = new Son();
+        // console.log(son);
+
+        // apply 接收数组
+        const obj2 = {
+            name: 'zhangSan2',
+        };
+        function fn2(arr1, arr2) {
+            console.log(this);
+            console.log(arr1);
+            console.log(arr2);
+        };
+
+        fn2.apply(obj2, ['red', 'blue']);
+
+        const arr = [1, 33, 79, 98, 34];
+        let res = Math.max.apply(Math, arr);
+        console.log(...arr);
+        console.log(res);
+
+        // bind();  不直接调用，有返回值  可以改变this指向，返回的事原函数改变this之后，生成的新函数
+        // 函数.bind(this指向  , 参数1, 参数2, ...)
+        const obj3 = {
+            name: 'zhangSan'
+        };
+        
+        function fn3(a, b) {
+            console.log(this);
+            console.log(a + b);
+        };
+
+        let f3 = fn3.bind(obj3, 1 , 2);
+        f3();
+        // 如果有些函数不需要立即调用，又想改变this指向
+
+        const btn = document .querySelector('.btn');
+        btn.onclick = function() {
+            this.disabled = true;
+            setTimeout(function() {
+                this.disabled = false;
+            }.bind(this),2000);
+        };
+
+        // bind倒计时
+        const btns = document.querySelectorAll('.btns');
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].onclick = function() {
+                this.disabled = true;
+                setTimeout(function() {
+                    this.disabled = false;
+                }.bind(this), 1000);
+            };
+        };
+    </script>
+</body>
+
+</html>

@@ -20,7 +20,7 @@ let _that;
 
 class Tab {
   constructor(id, jia) {
-    _that = this;
+    // _that = this;
     this.tab = document.getElementById(id);
     this.addBtn = document.querySelector(jia);
     this.ul = document.querySelector('.ul');
@@ -38,15 +38,14 @@ class Tab {
     this.getNode();
     for(let i = 0; i < this.lis.length; i++) {
       this.lis[i].index = i;
-      this.lis[i].onclick = this.tobbleTab;
-      this.del[i].onclick = this.delTab;
-      this.lis[i].ondblclick = this.editTab;
+      this.lis[i].onclick = this.tobbleTab.bind(this.lis[i], this);
+      this.del[i].onclick = this.delTab.bind(this.del[i], this);
+      this.lis[i].ondblclick = this.editTab.bind(this.lis[i], this);
     }
-    
-    this.addBtn.onclick = this.addTab;
+    this.addBtn.onclick = this.addTab.bind(this.addBtn, this);
   }
   // 1.切换功能
-  tobbleTab() {
+  tobbleTab(_that) {
     _that.clearStyle();
     this.className = 'li-style';
     _that.sections[this.index].className = 'con-style';
@@ -60,7 +59,7 @@ class Tab {
   }
 
   // 2.新增功能
-  addTab() {
+  addTab(_that) {
     _that.init();
     console.log(_that.lis.length);
     if(_that.lis.length == 5){
@@ -77,7 +76,7 @@ class Tab {
 
   }
   // 3.删除功能
-  delTab(e) {
+  delTab(_that, e) {
     e.stopPropagation();
     let jianNodeIndex = this.parentNode.index;
     console.log(_that.lis[jianNodeIndex], _that.sections[1]);
@@ -90,7 +89,7 @@ class Tab {
     
   }
   // 4.编辑功能
-  editTab() {
+  editTab(_that) {
       let str = this.innerText.substring(0,this.innerText.length-1);
       window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty(); 
       this.innerHTML = '<input type="text">'
