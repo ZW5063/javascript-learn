@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="">
+    <button>计算</button>
+    <div>结果是：<span></span></div>
+    <script>
+        // 递归函数 一个函数自己内部调用自己 这个函数就是递归函数
+        // let num = 1;
+        // function fn1 () {
+        //     console.log('打印');
+        //     if(num == 6){
+        //         return;
+        //     }
+        //     num++;
+        //     fn1();
+        // };
+        // fn1();
+
+        class JieCheng {
+            constructor(n) {
+                this.div = document.querySelector('div').querySelector('span');
+                this.setHTML(this.res(n));
+            }
+
+            setHTML(num) {
+                this.div.innerText = num;
+            }
+
+            res(n) {
+                if(n == 1){
+                    return 1;
+                }
+                return n * this.res.call(this, n - 1);
+            };
+
+        };
+
+        let btn2 = document.querySelector('button');
+        let inp2 = document.querySelector('input');
+        btn2.onclick = function() {
+            new JieCheng(this.value);
+        }.bind(inp2);
+
+        // 斐波那契数列
+        function fn3 (n) {
+            if(n == 1|| n == 2){
+                return 1;
+            }
+
+            return fn3(n - 2) + fn3(n - 1); 
+        };
+        
+        let fn3Res = fn3(12);
+        console.log(fn3Res);
+    </script>
+</body>
+</html>

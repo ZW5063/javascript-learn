@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        Object.prototype.a = function() {};
+        Function.prototype.b = function() {};
+        let Fun = function(){
+
+        };
+        // console.dir(Fun);
+
+        let f = new Fun();
+        // console.log(f);
+
+    </script>
+
+    <script>
+        'use strict';
+        let str1 = 1;
+        str1 = 2;
+        console.log(str1);
+
+    </script>
+
+    <script>
+        (function() {
+            let obj1 = {
+                name:'zhangs '
+            }
+            delete obj1;
+            console.log(obj1);
+            'use strict'
+        })()
+    </script>
+</body>
+</html>

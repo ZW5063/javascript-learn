@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jq//jq.js"></script>
+</head>
+<body>
+    <div>盒子</div>
+    <script>
+        // 高阶函数
+        // 1. 参数是函数的函数
+        function fn1(callback) {
+            callback && callback();
+        };
+        fn1(function() {console.log(1)});
+
+        // 2.返回值是函数的函数
+        function fn2() {
+            return function() {
+                console.log('返回的函数');
+            }
+        }
+        let fn2Res = fn2.call();
+        console.log(fn2Res);
+        fn2Res.call();
+
+
+        function fn3(a, b, callback) {
+            let num3 = a + b;
+            callback && callback(num3);
+        };
+
+        function fn3Callback(a) {
+            console.log('计算结果是' + ':' + a);
+        };
+
+        console.log(fn3Callback);
+
+        fn3.call(this, 3, 5, fn3Callback);
+
+
+        $("div").animate({left: 500}, function() {
+            $("div").css("backgroundColor", "blue")
+        })
+    </script>
+    <style>
+        div{
+            position: relative;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>11111</li>
+        <li>22222</li>
+        <li>33333</li>
+        <li>44444</li>
+    </ul>
+    <script>
+        const lis = document.querySelectorAll('li');
+
+        for (var i = 0; i < lis.length; i++) {
+            (function (i) {
+                lis[i].onclick = function () {
+                    console.log(i);
+                    console.log(lis[i].innerText);
+                }
+            })(i);
+        }
+
+        // 立即执行函数也称为小闭包
+
+        for (var j = 0; j < lis.length; j++) {
+
+            (function (a) {
+                setTimeout(function () {
+                    console.log(lis[a].innerHTML);
+                }, 2000);
+            })(j);
+        }
+    </script>
+</body>
+
+</html>

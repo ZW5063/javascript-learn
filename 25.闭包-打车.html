@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 打车
+        let res = (function() {
+            let startPrice = 13; // 初始价格 13元
+            let anyKilometre = 5; // 每公里加 5元
+            let total = null; // 总价
+            return {
+                // 平时价格
+                normal: function(whyKilometre) {
+                    console.log(total,'总计1');
+                    if(whyKilometre <= 3) {
+                        total = startPrice;
+                    }else{
+                        total = startPrice + (whyKilometre - 3) * 5;
+                    }
+                    return total;
+                },
+                //拥堵 加10元
+                yd: function (flag) {
+                    console.log(this,'总计2');
+                    return flag ? total + 10 : total; 
+                }
+            }
+        })();
+        // console.log(res.normal(5), '正常打车价格');
+        // res.normal(7)
+        res.normal(8)
+        console.log(res.yd(true), '堵车后价格');
+
+        // let 
+
+
+    </script>
+</body>
+</html>

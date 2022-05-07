@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn1 () {
+            // console.log(1);
+        };
+        // console.log(fn1());
+
+        const arr = [
+            {
+                id: 1,
+                name: '家电',
+                goods: [
+                    {
+                        id: 11,
+                        name: '冰箱',
+                    },
+                    {
+                        id: 12,
+                        name: '电视'
+                    }
+                ]
+            },
+            {
+                id: 2,
+                name: '服饰',
+                goods: [
+                    // {
+                    //     id: 21,
+                    //     name: '羽绒服',
+                    // },
+                    // {
+                    //     id: 22,
+                    //     name: '牛仔裤'
+                    // }
+                ]
+            },
+        ];
+        
+        function fn2(data, id) {
+            var o = {};
+            data.forEach(item => {
+                if(item.id == id){
+                    o = item;
+                } else if(item.goods && item.goods.length > 0){
+                    o = fn2(item.goods, id)
+                }
+                
+            })
+            return o
+        };
+        console.log(fn2(arr ,1));
+        // console.log(fn2(arr ,21));
+        // console.log(fn2(arr ,31));
+        // console.log(fn2(arr ,11));
+    </script>
+</body>
+</html>
