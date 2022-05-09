@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <ul>
         <li></li>
@@ -22,6 +24,46 @@
         arr.push('a')
 
         console.log(arr);
+
+        let obj1 = {
+            "0": 1,
+            "1": 2,
+            "2": 3,
+            "length": 3,
+        };
+        console.log(obj1);
+
+        let ary = Array.from(obj1);
+        console.log(ary);
+
+        let arr3 = [{
+            id: 1,
+            name: 'zhangs'
+        }, {
+            id: 2,
+            name: 'lisi'
+        }, {
+            id: 3,
+            name: 'wangwu'
+        }];
+        let res = arr3.find(item => item.id == 2);
+        console.log(res);
+
+        let arr4 = [1, 5, 10, 15];
+        let index = arr4.indexOf(item => { return item == 5 });
+        console.log(index, 'index');
+
+
+        const set = new Set([1, 2, 3, 2, 3]);
+        console.log(...set);
+        console.log([...set]);
+
+
+        let arr5 = [2,3,4,5,3,3,2,3];
+        
+        let ress = [...new Set(arr5)];
+        console.log(ress);
     </script>
 </body>
+
 </html>
