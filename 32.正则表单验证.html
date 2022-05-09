@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li>手机号：<input type="text" id="phone"><span></span></li>
+            <li>Q Q号：<input type="text" id="qq"><span></span></li>
+            <li>昵 称：<input type="text" name="" id="name"><span></span></li>
+            <li>验证码：<input type="text" name="" id="yzm"><span></span></li>
+            <li>密 码：<input type="text" name="" id="psd"><span></span></li>
+            <li>确认密码：<input type="text" name="" id="isPsd"><span></span></li>
+        </ul>
+    </div>
+
+    <script>
+        const phone = document.querySelector('#phone');
+        const qq = document.querySelector('#qq');
+        const name = document.querySelector('#name');
+        const yzm = document.querySelector('#yzm');
+        const psd = document.querySelector('#psd');
+        const isPsd = document.querySelector('#isPsd');
+        
+        let phoneReg = /^[1]{1}[\d]{10}$/;
+        let qqReg = /^[\d]{5,}$/;
+        let nameReg = /^[\u4e00-\u9fa5]{2,8}$/;
+        let yzmReg = /^[\d]{6}$/;
+        let psdReg = /^[0-9a-zA-Z_\-\?\!]{6,10}$/;
+        let  = /^[0-9a-zA-Z_\-\?\!]{6,10}$/;
+
+        yanZheng(phone, phoneReg);
+        yanZheng(qq, qqReg);
+        yanZheng(name, nameReg);
+        yanZheng(yzm, yzmReg);
+        yanZheng(psd, psdReg);
+
+
+
+        function yanZheng (inp, reg) {
+            inp.onblur = function() {
+                if(reg.test(inp.value)){
+                    this.nextElementSibling.className = 'seccuss';
+                    this.nextElementSibling.innerHTML = ' 输入正确';
+                }else {
+                    this.nextElementSibling.className = 'error';
+                    this.nextElementSibling.innerHTML = ' 输入错误';
+                }
+            }
+        };
+
+        console.log(isPsd);
+        isPsd.onblur = function () {
+            if(this.value == psd.value) {
+                this.nextElementSibling.className = 'seccuss';
+                this.nextElementSibling.innerHTML = ' 正确';
+            }else{
+                this.nextElementSibling.className = 'error';
+                this.nextElementSibling.innerHTML = '错误';
+            }
+        }
+
+    </script>
+
+    <style>
+        li {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        .seccuss{
+            color: green;
+        }
+        .error{
+            color: red;
+        }
+    </style>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        // 箭头函数不绑定this 箭头函数没有自己的this
+        // 如果在箭头函数中使用this this关键字将指向定义位置的this
+        const obj = {name: 'zhangSan'};
+
+        function fn () {
+            console.log(this, 1);
+            return () => {
+                console.log(this, 2);
+            }
+        }
+        // fn.call(obj)()
+
+        var obj1 = {
+            name: () => {
+                console.log(this);
+            }
+        }
+        obj1.name();
+    </script>
+</body>
+</html>

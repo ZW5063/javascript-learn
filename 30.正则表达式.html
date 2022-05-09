@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const regexp = new RegExp(/123/);
+        // let rg = /abc/;// 只要包含有abc字符串，返回都是true
+
+        // // test() 方法用来检测字符串是否符合正则表达式的规范
+
+        // // 正则表达式不需要写引号，不管是数字型还是字符串型
+        // console.log(rg.test('abc'));
+
+        // let reg = /^abc/; // ^ 表示以什么开头
+        // console.log(reg.test('abc')); // true
+        // console.log(reg.test('abcd')); // true
+        // console.log(reg.test('aabcd')); // false
+
+        // console.log('---------------------');
+
+        // let reg1 = /^abc$/; // ^ 表示以什么开头 $ 表示以什么结尾
+        // console.log(reg1.test('abc')); // true
+        // console.log(reg1.test('abcd')); // false
+        // console.log(reg1.test('aabcd')); // false
+        // console.log(reg1.test('abcabc')); // false
+
+        // console.log('---------------------');
+
+        // // 字符类 一系列自负供选择，只要汽配其中一个就行
+        // let reg2 = /[abc]/;  // 只要包含 a || b || c返回true 区分大小写
+        // console.log(reg2.test('andy')); // true
+        // console.log(reg2.test('BoB')); // false
+        // console.log(reg2.test('bob')); // true
+        // console.log(reg2.test('red')); // false
+
+        // console.log('---------------------');
+
+        // 字符类 一系列自负供选择，只要汽配其中一个就行
+        let reg3 = /^[abc]/;  
+        console.log(reg3.test('andy')); 
+        console.log(reg3.test('BoB')); 
+        console.log(reg3.test('bob')); 
+        console.log(reg3.test('reb')); 
+        console.log(reg3.test('a')); 
+
+        console.log('---------------------');
+        // ^ $ [] a-z 
+        // 字符组合 
+        let reg4 = /^[^a-zA-Z0-9_?]$/;  // 取返^[^]
+        console.log(reg4.test('+'));
+        console.log(reg4.test('+++'));
+        console.log(reg4.test('+'));
+        console.log('------------------');
+        // 量词符
+        let reg5 = /^a+/;
+        console.log(reg5.test('aa'));
+
+        let reg6 = /^a?/;
+        console.log(reg6.test('aa'));
+        console.log('------------------');
+        let reg7 = /^[a-zA-Z0-9]{5,14}$/;
+        console.log(reg7.test('123456789123456789'));
+    </script>
+</body>
+</html>

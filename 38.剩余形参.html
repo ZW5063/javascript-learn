@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function fn(...ags) {
+        //     console.log(ags);
+        //     const [a, b, c] = ags;
+        //     console.log(b);
+        // };
+        // fn(1, 2, 3);
+
+        const fn2 = (...args) => {
+            let total = 0;
+            args.forEach(function(item) {
+                
+                total += item;
+            });
+            // return total;
+            console.log(total);
+        };
+
+        fn2(12, 20);
+        fn2(10, 20, 30, 40);
+
+        let arr1 = [1, 2, 3];
+        console.log(...arr1);
+
+        let obj2 = {
+            name: 'zhangsan ',
+            age: '18',
+        }
+        console.log(...obj2.age);
+        let str1 =  '你好啊';
+        console.log(...str1);
+
+        let arr2 = [1, 2, 3];
+        let arr3 = [1, 2, {name:'zhangsa',age:19}];
+        let arr4 = [...arr2, ...arr3];
+        arr3[2].age = 20;
+        arr2[1] = 5;
+        arr4[5].name = 'xiaom'
+        console.log(arr4);
+        console.log(arr2);
+        console.log(arr3);
+
+        console.log('-----------------');
+        
+    </script>
+</body>
+
+</html>

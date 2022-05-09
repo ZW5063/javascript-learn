@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+</head>
+<body>
+    <input type="text" name="" id="">
+    <button>发送</button>
+    <div></div>
+
+    <script>
+        const input = document.querySelector('input');
+        const btn = document.querySelector('button');
+        const div = document.querySelector('div');
+
+        let text = /激情|sb|nmb/g;
+
+        btn.onclick = function() {
+            div.innerHTML = input.value.replace(text, '**');
+
+        }
+    </script>
+
+    <style>
+        input{
+            width: 30%;
+            height: 300px;
+        }
+    </style>
+</body>
+</html>

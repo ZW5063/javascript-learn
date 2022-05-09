@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const obj1 = {
+        //     id: 1,
+        //     name: '张三',
+        //     age: {
+        //         why: 18,
+        //     }
+        // };
+
+        // const obj1Copy = {};
+
+        // for (let key in obj1) {
+        //     obj1Copy[key] = obj1[key];
+        // };
+        // obj1Copy.id = 2;
+        // obj1Copy.age.why = 19;
+        // console.log(obj1);
+        // console.log(obj1Copy);
+
+        // // 浅拷贝和深拷贝
+        // // 1. 浅拷贝只是拷贝一层， 更深层次的对象级别只能用深拷贝
+        // // 2. 深拷贝拷贝多层， 每一级别都会拷贝
+        // // 3. Object.assign(targe, ...sources)  es6新增方法可以浅拷贝
+        // console.dir('=======================');
+        // const obj2 = {
+        //     id: 1,
+        //     name: "lisi",
+        // };
+
+        // const Obj2Copy = {};
+        // Object.assign(Obj2Copy, obj2);
+        // Obj2Copy.id = 2;
+        // console.log(obj2);
+        // console.log(Obj2Copy);
+
+        // console.dir('=======================');·
+        
+
+        const obj3 = {
+            id: 1,
+            name: "lisi",
+            obj: {
+                num: 10,
+            },
+            arr: [20, 30, 40]
+        };
+
+        const Obj3Copy = {};
+
+        // 深拷贝方法
+        function deepCopy(newVal, oldVal) {
+            for(let key in oldVal) {
+                let item = oldVal[key];
+                // 1. 如果是数组Array
+                if(item instanceof Array){
+                    newVal[key] = [];
+                    deepCopy(newVal[key], item);
+                }else if(item instanceof Object){
+                    // 2. 如果是对象Object
+                    newVal[key] = {};
+                    deepCopy(newVal[key], item);
+                }else{
+                    // 3. 如果是简单数据类型
+                    newVal[key] = item;
+                }
+            }
+        };
+
+        deepCopy(Obj3Copy, obj3);
+        Obj3Copy.arr = [2, 4, 5];
+        Obj3Copy.obj.num = 50;
+        console.log(Obj3Copy);
+
+        console.log(obj3);
+
+    </script>
+</body>
+</html>
