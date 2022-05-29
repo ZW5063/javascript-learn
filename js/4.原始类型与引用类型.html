@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let str1 = 'hello';
+        let str2 = 'hello';
+        console.log(str1 === str2);
+
+        let obj1 = {
+            name: 'xiaoming'
+        };
+        let obj2 = {
+            name: 'xiaoming'
+        };
+        console.log(obj1 === obj2);
+
+        let n = 10;
+        function fn (num) {
+            num + 1;
+        }
+        fn(n);
+        console.log(n);
+
+        let [a, b] = [10, 20];
+        console.log(a, b);
+        [a, b] = [b, a];
+        console.log(a, b);
+
+        let {name: name1, age, farind} = {
+            name: 'xiaom',
+            age: 18
+        };
+
+        console.log(name1, age, farind);
+        console.log('====================');
+        let num = 45;
+        // let x = null;
+
+        if(true) {
+            x = x => x + 1;
+        } else {
+            x = x => x;
+        }
+
+        console.log(x(num));
+
+        let obj4 = {
+            name: '小明',
+            age: 18,
+            sing() {
+                console.log(`我是${this.name}`);
+            },
+            abc() {
+                console.log('abc');
+            }
+        };
+        // obj4;
+        console.log(obj4);
+
+        // 闭包
+        function fn1 () {
+            let a = 10;
+            function fn2 () {
+                console.log(a);
+            }
+            return fn2;
+        };
+
+        let abc = fn1();
+        console.log(abc());
+        abc();
+
+        function fn3 () {
+            return 1;
+        }
+        console.log(fn3());
+        
+    </script>
+</body>
+</html>

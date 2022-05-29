@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function User(username, password) {
+            this.username = username;
+            this.password = password;
+            this.login = function() {
+                console.log('登录');
+            }
+        }
+
+        function Admin() {
+            
+            this.deleteUser = function() {
+                console.log('删除用户');
+            } 
+        }
+
+        Admin.prototype = new User();
+
+        let admin = new Admin();
+        
+        
+        admin.login();
+        admin.deleteUser();
+
+        class User2 {
+            constructor(username, password) {
+                this.username = username
+            }
+            login() {
+                console.log('登录');
+            }
+        }
+
+        class Admin2 extends User2 {
+            deleteUser() {
+                console.log('删除用户');
+            }
+        }
+        
+        let admin2 = new Admin();
+        admin2.deleteUser();
+        admin2.login();
+
+        let p = new Promise(resolve => {
+            resolve('promise返回')
+        })
+
+        p.then(res => {
+            console.log(res);
+        })
+
+        async function ayc () {
+            return 'async 函数'
+        }
+
+        ayc().then(res => {
+            console.log(res);
+        })
+
+    </script>
+</body>
+</html>

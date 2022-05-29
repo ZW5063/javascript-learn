@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let age = 29;
+        ++age;
+        age++;
+        console.log(age);
+
+        let num = 20;
+        num += 1;
+        console.log(num);
+
+        let num2 = 29;
+        let res2 = --num2 + 2;
+        console.log(num2, 'num2', res2, 'res2');
+
+        let num3 = '29';
+        num3++;
+        console.log(num3); // 30 隐式转换
+
+        let num4 = '你好';
+        num4++;
+        console.log(num4); // NaN
+
+        let num5 = false; // false 转换成0
+        num5++;
+        console.log(num5); // 1
+
+        let num6 = true; // true 转换成1
+        num6++;
+        console.log(num6); // 2
+
+        let num7 = 1.1; // 浮点型会保留小数
+        num7--;
+        console.log(num7); // 0.10000000000000009 // 浮点不精准
+
+        let num8 = 1.92312;
+        num8++;
+        console.log(num8); // 2.92312
+
+        // 对象？
+
+        // + -
+        let num9 = '1.2'; // 隐式转换
+        +num9;
+        console.log(+num9); // 1.2
+
+        let num10 = '02';
+        console.log(+num10); // 2
+
+        console.log('===================');
+        // +字符串 变成NaN
+
+        let num11 = true; // 布尔值 隐式转换
+        console.log(+num11, 'true');
+
+        let num12 = false;
+        console.log(+num12, 'false');
+
+        let num13 = true; // 减号转为负数
+        console.log(-num13); // -1
+
+        let num14 = 12;
+        console.log(-num14); // -12
+        
+        
+
+
+    </script>
+</body>
+</html>

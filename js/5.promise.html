@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function getTea() {
+        //     return new Promise(function (resolve) {
+        //         setTimeout(function () {
+        //             resolve('喝奶茶');
+        //         }, 2000);
+        //     })
+        // };
+
+        // function getHothop () {
+        //     return new Promise(function(reslove) {
+        //         setTimeout(function() {
+        //             reslove('吃火锅');
+        //         }, 1000);
+        //     })
+        // };
+        
+
+        // getTea().then(res => {
+        //     console.log(res,'res');
+        //     return getHothop();
+        // }).then(res => {
+        //     console.log(res, '第二个接口');
+        // });
+        // async function play () {
+        //     const res1 = await getHothop();
+        //     console.log(res1, '接口1');
+        //     const res2 = await getTea();
+        //     console.log(res2, '接口2');
+        //     await setTimeout(function() {
+        //         console.log('完毕回家');
+        //     }, 6000)
+        // };
+        // play();
+
+        function getTea () {
+            return new Promise (function(resolve) {
+                setTimeout(() => {
+                    resolve('喝奶茶')
+                }, 1000);
+            });
+        };
+
+        function getHothop () {
+            return new Promise (resolve => {
+                setTimeout(() => {
+                    resolve('吃火锅');
+                }, 2000);
+            });
+        };
+
+        function goHome () {
+            return new Promise( resolve => {
+                setTimeout(() => {
+                    resolve('回家')
+                },500);
+            });
+        };
+
+        getHothop().then(res => {
+            console.log(res, '第一件事');
+            return getTea();
+        }).then(res => {
+            console.log(res, '第二件事');
+            return goHome();
+        }).then(res => {
+            console.log(res);
+        })
+        
+
+
+
+        
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

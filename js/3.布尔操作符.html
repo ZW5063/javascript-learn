@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(!false);
+
+        let str = '';
+        console.log(!str);
+
+        let obj = {};
+        console.log(!obj);
+
+        // !! 相当于 Boolean() 第一个叹号返回布尔值 第二个取反
+
+        let obj2 = {
+            name: [],
+        }
+
+        console.log(!!obj2.name.length);
+
+        if( 1 && null){
+            console.log('true');
+        }else{
+            console.log('取反');
+        }
+
+        let found = true;
+        // console.log(found && abc);
+        let found2 = false;
+        console.log(found2 && abc);
+
+        let found3 = true;
+        console.log(found3 || abb);
+
+        // && || 短路运算符
+        // && 遇到 false 不再执行 true 继续执行
+        // || 遇到 true 不再执行 false 继续执行
+
+        console.log(12 * '10');
+
+        console.log(30 * '2' * "3");
+
+        let num3 = 123243536546546456;
+        let num4 = 243536546546456;
+        let num5 = 93243536546546456;
+        console.log(num3 * num4 * num5 * num4 * num4 * num5 * num4* num4 * num5 * num4* num4 * num5 * num4* num4 * num5 * num4* num4 * num5 * num4* num4 * num5 * num4* num4 * num5 * num4* num4 * num5 * num4* num4 * num5 * num4* num4 * num5 * num4* num4 * num5 * num4, 'num3');
+
+
+        console.log(56 ** 3);
+        console.log(8 ** .5);
+        console.log(2.8284271247461903 *  2.8284271247461903);
+
+        let obj3 = {
+            name: '1'
+        };
+        console.log(!!obj3.name && obj3.name.length > 1);
+        if(!!obj3.name && obj3.name.length > 0){
+            console.log('有');
+        }else{
+            console.log('没有',obj3.name.length);
+        }
+    </script>
+</body>
+</html>
