@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <br><br><br><br><br>
+    防抖原理
+    <br>
+    <input type="text">
+    <br>
+    防抖函数
+    <input type="text" class="inp2">
+    <script>
+    // 防抖 只允许执行最后一次
+    // 节流 控制执行次数
+    // 防抖原理
+    const inp = document.querySelector('input');
+
+    let time = null;
+
+    inp.oninput = function() {
+        if(!!time) {
+            console.log(time,'time');
+            clearTimeout(time);
+        } else {
+            console.log(time, 'wu');
+        }
+        time = setTimeout(function () {
+            console.log(this.value);
+        }.bind(this), 1000);
+    }
+
+    // 防抖函数
+    const inp2 = document.querySelector('.inp2');
+
+    inp2.oninput = debounce( function() {
+        console.log('结果', this.value);
+    }, 1000);
+
+    function debounce (fn, timeStamp) {
+        let t = null;
+        return function() {
+            if(!!t){
+                clearTimeout(t);
+            }
+            t = setTimeout(function() {
+                fn.call(this);
+            }.bind(this), timeStamp);
+        }
+    }
+
+    // 节流函数
+    let isTrue = true;
+    window.onscroll = (function () {
+        if(isTrue) {
+            setTimeout( function () {
+                console.log('hello');
+                isTrue = true;
+            },200)
+            isTrue = false;            
+        }
+    })
+
+    </script>
+
+    <style>
+        body {
+            height: 2000px;
+        }
+    </style>
+</body>
+</html>

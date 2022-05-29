@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <br><br><br><br><br><br>
+    防抖函数
+    <input type="text" name="" id="">
+    <br>
+    防抖函数2
+    <input type="text" class="inp2">
+    <br>
+    节流函数
+    <input type="text" class="inp3">
+    <script>
+        const inp = document.querySelector('input');
+
+        inp.oninput = debounce(function () {
+            console.log(this.value);
+        }, 1000);
+
+        function debounce(fn, stamp) {
+            let t = null;
+            return function () {
+                if (!!t) {
+                    clearInterval(t);
+                };
+                t = setTimeout(function () {
+                    fn.call(this);
+                }.bind(this), stamp);
+            };
+        };
+
+        const inp2 = document.querySelector('.inp2');
+        inp2.oninput = debounce2(function () {
+            console.log(this.value);
+        }, 1000);
+
+        function debounce2(fn, stamp) {
+            let t = null;
+            return function () {
+                if (!!t) {
+                    clearInterval(t);
+                }
+                t = setTimeout(() => {
+                    fn.call(this);
+                }, stamp);
+            }
+
+        };
+
+        const inp3 = document.querySelector('.inp3');
+        let isTrue = true;
+        window.onscroll = function() {
+            if(isTrue){
+                isTrue = false;
+                setTimeout(() => {
+                    console.log('节流');
+                    isTrue = true;
+                }, 500)
+            }
+            
+        }
+
+        
+    </script>
+
+    <style>
+        body {
+            height: 3000px;
+        }
+    </style>
+</body>
+
+</html>
