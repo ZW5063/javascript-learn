@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const res = {
+            data: {
+                a: '1',
+                b: 2
+            },
+            code: 200,
+            msg: 'success'
+        }
+
+        if (res?.data?.b) {
+            console.log('成功', res.data.a, res.data.b);
+        }
+
+        function dengdai() {
+            return new Promise(reslove => {
+                setTimeout(() => {
+                    // console.log('settime');
+                    reslove('settime')
+                }, 1000)
+            })
+
+        }
+
+        async function abc() {
+            let res = await dengdai();
+            console.log(res)
+            console.log('setTime end');
+        }
+
+        abc()
+    </script>
+</body>
+
+</html>
