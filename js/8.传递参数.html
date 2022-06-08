@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num = 1;
+        function fn (n) {
+            n = n + 2;
+        };
+        fn(num);
+        console.log(num);
+
+        const obj = {
+            a: 1,
+            b: 5
+        };
+
+        function fn2 (o) {
+            o.a = 8;
+        }
+        fn2(obj);
+        console.log(obj);
+
+        function setName (obj) {
+            obj.name = 'zw',
+            obj = new Object();
+            obj.name = 'lzw'
+        }
+        const person = new Object();
+        setName(person);
+        console.log(person);
+
+        function setName2(obj) {
+            obj = JSON.parse(JSON.stringify(obj));
+            obj.name = 'zw2';
+            console.log(obj);
+        }
+
+        const person2 = {
+            name: '123'
+        }
+        setName2(person2)
+        console.log(person2.name)
+
+        function setName3(arr) {
+            arr = {}
+            arr = 9
+            console.log(arr)
+        }
+
+        const person3 = [1, 2, 3];
+        setName3(person3)
+        console.log(person3[1])
+    </script>
+</body>
+</html>
