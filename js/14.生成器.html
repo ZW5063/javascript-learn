@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function* fn() {
+            yield 1;
+            yield 2;
+        }
+        let a = fn();
+
+        let arr = [93, 3, 74, 1, 2, 1, 3, 4, 5, [2, 3, [4, 5]], 6, [3, 4, 8], 3, 97, 543, [3]];
+        // console.log(arr)
+
+
+        let arr1 = [];
+        function fn1(arrs) {
+            for (let i of arrs) {
+                if (i instanceof Array) {
+                    fn1(i);
+                } else {
+                    arr1.push(i);
+                }
+            }
+            return arr1;
+        }
+
+        function fn2(arr = []) {
+            const newArr = []
+            arr.map(item => {
+                if (!newArr.includes(item)) {
+                    newArr.push(item)
+                }
+            })
+            return newArr;
+        };
+
+        function fn3(array = []) {
+            for (let i = 0; i < array.length; i++) {
+                console.log(array[i], 'iiiiii')
+                for (let j = i + 1; j < i + 2; j ++) {
+                    console.log(array[j],'j');
+                    if ( array[i] > array[j]) {
+                        let tem = array[j];
+                        array[i] = tem;
+                        array[j] = array[i];
+                        
+                    }
+                }
+            }
+        }
+
+        console.log(fn1(arr))
+
+        // console.log()
+        let res2 = fn2(arr1)
+        console.log(res2)
+        fn3(res2)
+        console.log(res2)
+
+        // let res = [...new Set(arr1)]
+        // console.log(res)
+    </script>
+</body>
+
+</html>
