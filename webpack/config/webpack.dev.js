@@ -8,10 +8,9 @@ module.exports = {
   // 输出
   output: {
     // 文件输入路径
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, '../dist'),
     // 文件输出名字
     filename: 'main.js',
-    clean: true
   },
 
   // 加载器
@@ -28,10 +27,10 @@ module.exports = {
     // eslint
     new ESLintPlugin({
       // 检查内容 检查的文件夹
-      context: path.resolve(__dirname, 'src')
+      context: path.resolve(__dirname, '../src')
     }),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'public/index.html')
+      template: path.resolve(__dirname, '../public/index.html')
     })
   ],
   // webpack 服务器配置
