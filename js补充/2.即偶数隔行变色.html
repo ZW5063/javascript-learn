@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <script>
+        const lis = document.querySelectorAll('li')
+        for (let i = 0; i < lis.length; i++) {
+            if (i % 2) {
+                lis[i].style.background = '#f6f6f6'
+                // lis[i].onmouseover = function () {
+                //     console.log('我是偶数行');
+                // }
+            } else {
+                lis[i].style.background = '#fdfdfd'
+                // lis[i].onmouseover = function () {
+                //     console.log('我是奇数行');
+                // }
+            }
+            lis[i].onmouseover = () => {
+                lis[i].style.background = '#f6f6f6'
+            }
+            lis[i].onmouseout= () => {
+                lis[i].style.background = '#fdfdfd'
+            }
+        }
+    </script>
+
+    <style>
+        ul {
+            list-style: none;
+            border: 1px solid #bbb;
+            width: 500px;
+        }
+
+        li {
+            width: 500px;
+            height: 50px;
+            /* border: 1px solid #bbb; */
+            /* margin-bottom: 20px; */
+            cursor: pointer;
+        }
+    </style>
+</body>
+
+</html>
